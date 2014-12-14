@@ -1,0 +1,3 @@
+include "core:shared", "core:server", "core:client", "app:shared", "app:server", "app:client"
+
+rootProject.children.each { child -> child.children.each { it.name = child.name + "-" + it.name } }

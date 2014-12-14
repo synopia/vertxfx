@@ -1,0 +1,4 @@
+dependencies {
+    compile "io.vertx:vertx-core:2.1.5"
+    compile "io.vertx:vertx-platform:2.1.5"
+}

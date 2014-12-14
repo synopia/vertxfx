@@ -1,0 +1,39 @@
+apply plugin: 'vertx'
+
+dependencies {
+    compile project(":core:core-server")
+    compile project(":app:app-shared")
+
+}
+
+configurations {
+    vertxcluster
+}
+
+dependencies {
+    vertxcluster 'io.vertx:vertx-hazelcast:2.1.5'
+}
+
+runMod {
+    classpath += configurations.vertxcluster
+    // should work... need to add the files from the configuration into the classpath.
+}
+
+vertx {
+    platform {
+        version '2.1.5'
+        toolsVersion '2.0.3-final'
+
+    }
+    config {
+        main "org.synopia.vertxfx.deploy.DeployerVerticle"
+    }
+    deployments {
+        mod {
+            platform {
+                cluster '127.0.0.1', 8080
+
+            }
+        }
+    }
+}

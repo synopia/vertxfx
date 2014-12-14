@@ -1,0 +1,11 @@
+dependencies {
+    compile "com.airhacks:afterburner.fx:1.6.0"
+    compile project(":core:core-client")
+    compile project(":app:app-shared")
+    compile "io.vertx:vertx-core:2.1.5"
+    compile "io.vertx:vertx-platform:2.1.5"
+    compile 'io.vertx:vertx-hazelcast:2.1.5'
+
+}
+
+sourceSets.main.resources.srcDirs += file('src/main/java')
