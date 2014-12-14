@@ -1,3 +1,4 @@
+apply plugin: 'application'
 dependencies {
     compile "com.airhacks:afterburner.fx:1.6.0"
     compile project(":core:core-client")
@@ -9,3 +10,5 @@ dependencies {
 }
 
 sourceSets.main.resources.srcDirs += file('src/main/java')
+
+mainClassName = "org.synopia.vertxfx.client.Main"
