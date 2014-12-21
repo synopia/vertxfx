@@ -4,6 +4,7 @@ dependencies {
     compile project(":core:core-server")
     compile project(":app:app-shared")
 
+    runtime 'io.vertx:vertx-hazelcast:2.1.5'
 }
 
 configurations {

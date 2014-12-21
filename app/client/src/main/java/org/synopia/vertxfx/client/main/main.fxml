@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import org.tbee.javafx.scene.layout.fxml.MigPane?>
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.synopia.vertxfx.client.main.MainPresenter">
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Close"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="New">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Contact"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Contact"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="View">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Action 1"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <bottom>
+        <AnchorPane BorderPane.alignment="CENTER">
+            <children>
+                <HBox AnchorPane.rightAnchor="0.0">
+                    <children>
+                        <Label fx:id="ping" text="120ms"/>
+                    </children>
+                </HBox>
+                <HBox>
+                    <children>
+                        <Label fx:id="status" text="Success"/>
+                    </children>
+                </HBox>
+            </children>
+        </AnchorPane>
+    </bottom>
+    <center>
+        <MigPane rows="grow" cols="grow">
+            <Pane fx:id="content" MigPane.cc="center"/>
+        </MigPane>
+    </center>
+</BorderPane>

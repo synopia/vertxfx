@@ -1,4 +1,13 @@
 dependencies {
     compile project(":core:core-shared")
+
+
+    compile 'com.jidesoft:jidefx-decoration:0.9.1'
+    compile 'com.jidesoft:jidefx-converters:0.9.1'
+    compile 'com.jidesoft:jidefx-common:0.9.1'
+    compile 'com.jidesoft:jidefx-fields:0.9.1'
+    compile 'com.jidesoft:jidefx-validation:0.9.1'
+    compile 'com.jidesoft:jidefx-comparators:0.9.1'
+
 }
 

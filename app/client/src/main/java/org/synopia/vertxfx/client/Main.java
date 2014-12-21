@@ -4,7 +4,7 @@ import com.airhacks.afterburner.injection.Injector;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.synopia.vertxfx.client.login.LoginView;
+import org.synopia.vertxfx.client.main.MainView;
 import org.synopia.vertxfx.rpc.ClientRPC;
 import org.synopia.vertxfx.rpc.RPC;
 import org.vertx.java.platform.PlatformLocator;
@@ -21,10 +21,15 @@ public class Main extends Application {
         PlatformManager pm = PlatformLocator.factory.createPlatformManager(0, "127.0.0.1");
 
         Injector.setModelOrService(RPC.class, new ClientRPC(pm.vertx().eventBus()));
-        LoginView view = new LoginView();
+
+        MainView view = new MainView();
         Scene scene = new Scene(view.getView());
+
+        stage.setWidth(600);
+        stage.setHeight(400);
         stage.setScene(scene);
         stage.show();
+        stage.setOnCloseRequest(windowEvent -> pm.stop());
     }
 
     public static void main(String[] args) {

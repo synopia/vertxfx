@@ -1,5 +1,6 @@
 package org.synopia.vertxfx.rpc;
 
+import org.vertx.java.core.AsyncResult;
 import org.vertx.java.core.Future;
 import org.vertx.java.core.Handler;
 import org.vertx.java.core.buffer.Buffer;
@@ -32,10 +33,14 @@ public abstract class RPC {
         invocation.parameters = args;
         Buffer buffer = FSTUtil.write(invocation);
         Future future = createFuture();
-        eventBus.send(service.getName(), buffer, new Handler<Message<Buffer>>() {
+        eventBus.sendWithTimeout(service.getName(), buffer, 1000, new Handler<AsyncResult<Message<Buffer>>>() {
             @Override
-            public void handle(Message<Buffer> event) {
-                future.setResult(FSTUtil.read(event.body()));
+            public void handle(AsyncResult<Message<Buffer>> event) {
+                if (event.succeeded()) {
+                    future.setResult(FSTUtil.read(event.result().body()));
+                } else {
+                    future.setFailure(event.cause());
+                }
             }
         });
         return future;
